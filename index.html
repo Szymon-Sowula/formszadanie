@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forms dojo</title>
+    <link href="form-1.png" rel="stylesheet">
+    <link href="wewewe.css" rel="stylesheet">
+    <script src="wewewew.js"></script>
+</head>
+
+<body>
+
+    <!-- poniżej wpisujemy kod HTML -->
+    <form action="" method="post">
+        <header>
+            <h1>Formularz kontaktowy</h1>
+        </header>
+        <p>Imię</p>
+        <input type="text" name="first_name" placeholder="JOSEF">
+        <p>Nazwisko</p>
+        <input type="text" name="last_name" placeholder="BRATAN">
+        <p>email*
+        <p>
+            <input type="email" name="email" placeholder="ZEBYLUBBEZ@interia.pl">
+            <input type="radio" value="Jestem waszym klientem">Jestem waszym klientem<br>
+            <input type="radio" value="Nie jestem waszym klientem">Nie jestem waszym klientem<br>
+        <p>Wiadomość</p>
+        <textarea name="comments" rows="5" cols="7">Tu wpisz swój komentarz</textarea>
+        <input type="checkbox" name="read">Przeczytałem regulamin*<br>
+        <input type="submit" name="przycisk" value="Wyślij">lub naciśnij <strong>enter</strong>
+    </form>
+    <!-- poniżej tej linijki nie ruszaj -->
+    <h1>Utwórz poniższy formularz</h1>
+    <main>
+        <img src="./form-1.png" alt="Wygląd tabeli" />
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            init();
+            log(true, "Sprawdzanie formularza");
+            selectorExists("header", 1, "Istnieje jeden header");
+            selectorExists("html head title", 1, "Strona ma tytuł");
+            selectorTextContains("header h1", "Formularz kontaktowy", "Header ma nagłówek z napisem 'Formularz kontaktowy'");
+            selectorExists("input[name='first_name']", 1, "Istnieje pole Imię z name 'first_name'");
+            selectorExists("input[name='last_name']", 1, "Istnieje pole Imię z name 'last_name'");
+            selectorExists("input[name='email']", 1, "Istnieje pole email");
+            attributeValue("input[name='email']", 'type', 'email', "Istnieje pole email jest typu email");
+            selectorExists("textarea", 1, "Istnieje jedno pole typu textarea");
+            attributeValue("textarea", "name", "comments", "Textarea ma name=comments");
+            selectorTextContains("textarea", "Tu wpisz sw", "Komentarz ma wartość domyślną");
+            // selectorExists("input[type='checkbox']", 1, "Istnieje checkbox zapoznania z regulaminem");
+            selectorExists("input[name='read']", 1, "Istnieje checkbox zapoznania z regulaminem");
+            selectorExists("button[type='submit'], input[type='submit']", 1, "Istnieje jeden submit")
+        });
+    </script>
+</body>
+
+</html>
